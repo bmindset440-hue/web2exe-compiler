@@ -1,8 +1,8 @@
 {
-  "build": {
+"build": {
     "beforeDevCommand": "",
     "beforeBuildCommand": "",
-    "devPath": "https://google.com",
+    "devPath": "../dist",
     "distDir": "../dist"
   },
   "package": {
