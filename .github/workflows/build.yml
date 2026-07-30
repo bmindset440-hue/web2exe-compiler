@@ -23,6 +23,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      - name: Create Dist Directory
+        run: |
+          mkdir dist
+          echo "<html><body></body></html>" > dist/index.html
 
       - name: Build Tauri app
         run: npx tauri build
