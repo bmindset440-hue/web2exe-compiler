@@ -1,32 +1,13 @@
 {
-"build": {
-    "beforeDevCommand": "",
-    "beforeBuildCommand": "",
-    "devPath": "../dist",
-    "distDir": "../dist"
+  "name": "web2exe-compiler",
+  "version": "1.0.0",
+  "description": "Web2Exe App Compiler",
+  "private": true,
+  "scripts": {
+    "tauri": "tauri",
+    "build": "tauri build"
   },
-  "package": {
-    "productName": "Web2ExeApp",
-    "version": "1.0.0"
-  },
-  "tauri": {
-    "allowlist": {
-      "all": true
-    },
-    "bundle": {
-      "active": true,
-      "targets": ["msi", "nsis"],
-      "identifier": "com.jdcreativestudio.web2exe"
-    },
-    "windows": [
-      {
-        "title": "Web2ExeApp",
-        "width": 1280,
-        "height": 800,
-        "resizable": true,
-        "fullscreen": false,
-        "url": "https://google.com"
-      }
-    ]
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.5.0"
   }
 }
