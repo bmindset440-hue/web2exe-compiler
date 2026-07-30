@@ -21,12 +21,11 @@ jobs:
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Install dependencies
-        run: npm install
       - name: Create Dist Directory
+        shell: pwsh
         run: |
-          mkdir dist
-          echo "<html><body></body></html>" > dist/index.html
+          if (-not (Test-Path "dist")) { New-Item -ItemType Directory -Path "dist" }
+          Set-Content -Path "dist/index.html" -Value "<html><body></body></html>"
 
       - name: Build Tauri app
         run: npx tauri build
