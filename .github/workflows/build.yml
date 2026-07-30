@@ -28,7 +28,7 @@ jobs:
           Set-Content -Path "dist/index.html" -Value "<html><body></body></html>"
 
       - name: Build Tauri app
-        run: npx tauri build
+        run: npm run tauri build
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
