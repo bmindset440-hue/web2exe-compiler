@@ -27,4 +27,9 @@ jobs:
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0
         with:
+          tagName: v__VERSION__
+          releaseName: 'App v__VERSION__'
+          releaseBody: 'See the assets to download this version and install.'
+          releaseDraft: true
+          prerelease: false
           projectPath: ./
