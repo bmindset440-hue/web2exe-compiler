@@ -3,7 +3,7 @@
     "beforeDevCommand": "",
     "beforeBuildCommand": "",
     "devPath": "https://google.com",
-    "distDir": "https://google.com"
+    "distDir": "../dist"
   },
   "package": {
     "productName": "Web2ExeApp",
@@ -24,7 +24,8 @@
         "width": 1280,
         "height": 800,
         "resizable": true,
-        "fullscreen": false
+        "fullscreen": false,
+        "url": "https://google.com"
       }
     ]
   }
