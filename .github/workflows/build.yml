@@ -27,8 +27,11 @@ jobs:
           if (-not (Test-Path "dist")) { New-Item -ItemType Directory -Path "dist" }
           Set-Content -Path "dist/index.html" -Value "<html><body></body></html>"
 
-      - name: Install dependencies
-        run: npm install
+       - name: Install dependencies
+         run: npm install
+
+       - name: Build Frontend
+        run: npm run build
 
       - name: Build Tauri app
         run: npm run tauri build
