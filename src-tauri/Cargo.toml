@@ -5,6 +5,10 @@ description = "Web2EXE Compiler App"
 authors = ["RAATRA STUDIOS"]
 edition = "2021"
 
+[[bin]]
+name = "web2exe-compiler"
+path = "src/main.rs"
+
 [build-dependencies]
 tauri-build = { version = "1.5", features = [] }
 
