@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Create Icons Directory & Dummy Icon File
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path "src-tauri/icons"
+          Set-Content -Path "src-tauri/icons/icon.ico" -Value " "
+
       - name: Install dependencies
         run: npm install
 
