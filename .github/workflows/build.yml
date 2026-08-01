@@ -18,20 +18,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Rust stable
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Create Dist Directory and Dummy Page
-        shell: pwsh
-        run: |
-          New-Item -ItemType Directory -Force -Path "dist"
-          "<!DOCTYPE html><html><head><title>App</title></head><body><h1>Web2EXE Built Successfully</h1></body></html>" | Out-File -Encoding utf8 "dist/index.html"
-
       - name: Install dependencies
         run: npm install
 
-      - name: Build Tauri app
-        run: npm run tauri build
+      # Official Tauri Action handles build, paths, & artifact creation automatically
+      - name: Build Tauri App
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
