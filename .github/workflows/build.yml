@@ -18,11 +18,12 @@ jobs:
         with:
           node-version: 20
 
-      - name: Create Icons Directory & Dummy Icon File
+      - name: Generate Valid Binary Icon
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path "src-tauri/icons"
-          Set-Content -Path "src-tauri/icons/icon.ico" -Value " "
+          $base64Ico = "AAABAAEAICAAAAEAIACoEAAAFgAAACAgAAABACAAqBAAAM4QAAA1AQAANAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          [System.IO.File]::WriteAllBytes("src-tauri/icons/icon.ico", [System.Convert]::FromBase64String($base64Ico))
 
       - name: Install dependencies
         run: npm install
