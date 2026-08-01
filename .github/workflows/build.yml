@@ -25,13 +25,10 @@ jobs:
         shell: pwsh
         run: |
           if (-not (Test-Path "dist")) { New-Item -ItemType Directory -Path "dist" }
-          Set-Content -Path "dist/index.html" -Value "<html><body></body></html>"
+          Set-Content -Path "dist/index.html" -Value "<html><body><h1>App Ready</h1></body></html>"
 
       - name: Install dependencies
         run: npm install
-
-      - name: Build Frontend
-        run: npm run build
 
       - name: Build Tauri app
         run: npm run tauri build
