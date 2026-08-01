@@ -26,8 +26,9 @@
       "active": true,
       "targets": "all",
       "identifier": "com.web2exe.app",
-      "icon": [],
-      "resources": []
+      "icon": [
+        "icons/icon.ico"
+      ]
     }
   }
 }
