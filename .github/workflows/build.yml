@@ -21,11 +21,11 @@ jobs:
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Create Dist Directory and HTML file
+      - name: Create Dist Directory and Dummy Page
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path "dist"
-          Set-Content -Path "dist/index.html" -Value "<html><body><h1>App Ready</h1></body></html>"
+          "<!DOCTYPE html><html><head><title>App</title></head><body><h1>Web2EXE Built Successfully</h1></body></html>" | Out-File -Encoding utf8 "dist/index.html"
 
       - name: Install dependencies
         run: npm install
