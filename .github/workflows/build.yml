@@ -18,6 +18,26 @@ jobs:
         with:
           node-version: 20
 
+      - name: Download Logo & Convert to ICO
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path "src-tauri/icons"
+          # Download your logo image
+          Invoke-WebRequest -Uri "https://i.postimg.cc/Gm15qSGj/Professional-logo-design-for-WEB2EXE-modern-tech-company-logo-with-bold-typography-geometric-el.jpg" -OutFile "src-tauri/icons/logo.jpg"
+          
+          # Convert JPG to true Windows ICO format using System.Drawing
+          Add-Type -AssemblyName System.Drawing
+          $jpg = [System.Drawing.Image]::FromFile("src-tauri/icons/logo.jpg")
+          $bmp = New-Object System.Drawing.Bitmap($jpg, 256, 256)
+          $hIcon = $bmp.GetHicon()
+          $icon = [System.Drawing.Icon]::FromHandle($hIcon)
+          
+          $stream = [System.IO.File]::Create("src-tauri/icons/icon.ico")
+          $icon.Save($stream)
+          $stream.Close()
+          $jpg.Dispose()
+          $bmp.Dispose()
+
       - name: Install dependencies
         run: npm install
 
