@@ -4,6 +4,7 @@ version = "1.0.0"
 description = "Web2EXE Compiler App"
 authors = ["RAATRA STUDIOS"]
 edition = "2021"
+build = "build.rs"
 
 [[bin]]
 name = "web2exe-compiler"
